@@ -33,8 +33,8 @@ export default function HistoricalNew() {
   const [viewport, setViewport] = useState({
     latitude: 21,
     longitude: 78,
-    width: "55vw",
-    height: "92vh",
+    width: "100%",
+    height: "100%",
     zoom: 3
   });
   const url = API.map;
