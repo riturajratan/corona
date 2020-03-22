@@ -10,6 +10,7 @@ import {
 } from "recharts";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
+import corona from "./corona.png";
 
 const useStyles = makeStyles({
   root: {
@@ -27,17 +28,16 @@ export default function CountryTimeline(props) {
   if (detail && detail.timeline) {
     Object.keys(detail.timeline.cases).forEach(key => {
       data.push({
-        date: moment(key).format('DD-MMM-YY'),
+        date: moment(key).format("DD-MMM-YY"),
         cases: +detail.timeline.cases[key],
         deaths: +detail.timeline.deaths[key],
         recovered: +detail.timeline.recovered[key]
       });
     });
   }
-  console.log(data);
   return (
     <>
-      {data.length && (
+      {data.length !== 0 && (
         <ResponsiveContainer>
           <LineChart
             data={data}
@@ -75,6 +75,17 @@ export default function CountryTimeline(props) {
             />
           </LineChart>
         </ResponsiveContainer>
+      )}
+      {!data.length && (
+        <span style={{ fontSize: "large", color: "orange" }}>
+          Click on any
+          <img
+            src={corona}
+            alt=":( Go corona Go :("
+            style={{ width: "46px", marginBottom: "-11px" }}
+          />{" "}
+          icon in map to get country data
+        </span>
       )}
     </>
   );

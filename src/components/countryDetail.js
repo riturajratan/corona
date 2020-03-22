@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import { TableContainer } from "@material-ui/core";
 import Moment from "react-moment";
 import Title from "./Title";
+import corona from "./corona.png";
 
 const useStyles = makeStyles({
   root: {
@@ -41,7 +42,7 @@ export default function CountryDetail(props) {
                 .map((key, index) => {
                   return (
                     <TableRow key={index}>
-                      <TableCell style={{width:150}}>
+                      <TableCell style={{ width: 150 }}>
                         <Moment format="DD MMM YYYY">{key}</Moment>
                       </TableCell>
                       <TableCell style={{ fontSize: "large", color: "orange" }}>
@@ -56,6 +57,21 @@ export default function CountryDetail(props) {
                     </TableRow>
                   );
                 })}
+            {!(detail && detail.timeline) && (
+              <TableRow>
+                <TableCell style={{ fontSize: "large", color: "orange" }} colspan="4">
+                  <span>
+                    Click on any
+                    <img
+                      src={corona}
+                      alt=":( Go corona Go :("
+                      style={{ width: "46px", marginBottom: "-11px" }}
+                    /> icon in map
+                    to get country data
+                  </span>
+                </TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

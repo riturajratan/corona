@@ -128,7 +128,7 @@ export default function HistoricalNew() {
                 </span>
               )}
               {!(historicalData && historicalData.country) && (
-                <span>Corona All Over World</span>
+                <span>Corona All Over World</span> 
               )}
             </h1>
             <Divider />

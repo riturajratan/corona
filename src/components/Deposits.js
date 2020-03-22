@@ -54,7 +54,7 @@ export default function Deposits() {
           </Typography>
           <hr/>
           <Typography color="textSecondary" variant="h6"  className={classes.depositContext}>
-            on <Moment format="DD-MMM-YYYY">{detail.updated}</Moment> 
+            Till <Moment format="DD-MMM-YYYY">{detail.updated}</Moment> 
           </Typography>
           <div></div>
         </React.Fragment>
