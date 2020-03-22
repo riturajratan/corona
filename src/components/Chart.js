@@ -12,6 +12,7 @@ import {
 import Title from "./Title";
 import { API } from "../config/config";
 import { CircularProgress } from "@material-ui/core";
+import moment from "moment";
 
 export default function Chart() {
   const theme = useTheme();
@@ -23,6 +24,7 @@ export default function Chart() {
       fetch(API.dailySummary)
         .then(response => response.json())
         .then(data => {
+          data.map(d => d.reportDateString = moment(d.reportDateString).format('DD-MMM-YYYY'));
           setDetail(data);
           setLoading(false);
         });
@@ -33,7 +35,7 @@ export default function Chart() {
       {loading && <CircularProgress />}
       {detail && (
         <React.Fragment>
-          <Title>Corona Journey</Title>
+          <Title>Corona Journey Day By Day</Title>
           <ResponsiveContainer>
             <AreaChart
               data={detail}
@@ -45,7 +47,7 @@ export default function Chart() {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="reportDateString"  angle={-45} textAnchor="end" />
+              <XAxis dataKey="reportDateString" angle={-43} textAnchor="end" tick={{ fontSize: 10 }} tickCount={20}/>
               <YAxis />
               <Tooltip />
               <Area

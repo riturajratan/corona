@@ -15,15 +15,14 @@ import Orders from "./components/Orders";
 import Footer from "./components/includes/footer";
 import Location from "./components/location";
 import Historical from "./components/historical";
-import { Tabs, Tab } from "@material-ui/core";
+import { Tabs, Tab, Toolbar, IconButton } from "@material-ui/core";
+import HistoricalNew from "./components/historicalNew";
+import corona from "./components/corona.png";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
+     Created Using https://corona.lmao.ninja and https://covid19.mathdro.id. 
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -64,13 +63,13 @@ const useStyles = makeStyles(theme => ({
     height: 500
   },
   historical: {
-    height: 700
+    // height: 700
   },
   chartHeight: {
     height: 220
   },
   historicalHeight: {
-    height: 680
+    // height: 680
   }
 }));
 
@@ -83,18 +82,8 @@ function a11yProps(index) {
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
-    // <Typography
-    //   component="div"
-    //   role="tabpanel"
-    //   hidden={value !== index}
-    //   id={`scrollable-force-tabpanel-${index}`}
-    //   aria-labelledby={`scrollable-force-tab-${index}`}
-    //   {...other}
-    // >
-    <>{value === index && <Container maxWidth={false}>{children}</Container>}</>
-    // </Typography>
+     <>{value === index && <Container maxWidth={false}>{children}</Container>}</>
   );
 }
 
@@ -109,16 +98,47 @@ export default function Dashboard() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="simple tabs example"
-        >
-          <Tab label="Dashboard" {...a11yProps(0)} />
-          <Tab label="Map View" {...a11yProps(1)} />
-        </Tabs>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <img src={corona} alt="go corona go" style={{ width: "50px" }} />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            CORONA
+          </Typography>
+
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="simple tabs example"
+          >
+            <Tab label="Dashboard" {...a11yProps(0)} />
+            <Tab label="Reports" {...a11yProps(1)} />
+          </Tabs>
+        </Toolbar>
       </AppBar>
       <TabPanel value={value} index={0}>
+        <main className={classes.content}>
+          <div className={classes.appBarSpacer} />
+          <Container className={classes.container}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={12} lg={12}>
+                <Paper className={classes.historicalHeight}>
+                  <HistoricalNew className={classes.historical} />
+                </Paper>
+              </Grid>
+            </Grid>
+            <Box pt={4}>
+              <Copyright />
+            </Box>
+          </Container>
+        </main>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
           <Container className={classes.container}>
@@ -143,21 +163,6 @@ export default function Dashboard() {
             <Box pt={4}>
               <Copyright />
             </Box>
-          </Container>
-          {/* <Footer/> */}
-        </main>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <Container className={classes.container}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={12} lg={12}>
-                <Paper className={classes.historicalHeight}>
-                  <Historical className={classes.historical} />
-                </Paper>
-              </Grid>
-            </Grid>
           </Container>
         </main>
       </TabPanel>

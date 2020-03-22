@@ -23,11 +23,6 @@ export default function CountryDetail(props) {
   const classes = useStyles();
   return (
     <>
-      {detail && detail.timeline && (
-        <Title>
-          Corona Day By Day in {detail.country || ""} {detail.province || ""}
-        </Title>
-      )}
       <TableContainer className={classes.container}>
         <Table stickyHeader size="small" aria-label="sticky table">
           <TableHead>

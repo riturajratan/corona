@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature, Popup } from "react-mapbox-gl";
 import { API } from "../config/config";
 import Moment from "react-moment";
-import useSupercluster from "use-supercluster";
 import {
   Grid,
   Paper,
@@ -22,7 +21,7 @@ const Map = ReactMapboxGl({
 
 const mapStyle = {
   // flex: 1,
-  height: "90vh",
+  height: "80vh",
   width: "50vw"
 };
 

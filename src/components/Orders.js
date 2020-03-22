@@ -35,7 +35,6 @@ export default function Orders() {
       {loading && <CircularProgress />}
       {detail && (
         <React.Fragment>
-          <Title>Corona Status</Title>
           <MaterialTable
             title="Corona Status"
             columns={[
