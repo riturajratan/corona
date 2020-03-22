@@ -178,7 +178,7 @@ export default function HistoricalNew() {
           </Grid>
           <Divider />
 
-          <Grid item xs={12} md={8} lg={8}>
+          <Grid item xs={12} md={8} lg={8} style={{ minHeight: 300}}>
             <ReactMapGL
               {...viewport}
               maxZoom={20}
