@@ -14,7 +14,6 @@ import Deposits from "./components/Deposits";
 import Orders from "./components/Orders";
 import Footer from "./components/includes/footer";
 import Location from "./components/location";
-import Historical from "./components/historical";
 import { Tabs, Tab, Toolbar, IconButton } from "@material-ui/core";
 import HistoricalNew from "./components/historicalNew";
 import corona from "./components/corona.png";
