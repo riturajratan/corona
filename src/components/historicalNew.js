@@ -80,13 +80,11 @@ export default function HistoricalNew() {
     console.log(historical);
     const filterResult = historical.filter(
       response =>
-        response.country === country.country &&
-        response.province === country.province
+        response.country.toLowerCase() === country.country.toLowerCase() && (response.province === null || response.province.toLowerCase()  === country.province.toLowerCase())
     );
     const filterCountry = countries.filter(
       response =>
-        response.country === country.country &&
-        response.province === country.province
+      response.country.toLowerCase() === country.country.toLowerCase() && (response.province === null || response.province.toLowerCase()  === country.province.toLowerCase())
     );
     setCountryTotal(filterCountry.length ? filterCountry[0] : null);
     setHistoricalData(filterResult.length ? filterResult[0] : null);
