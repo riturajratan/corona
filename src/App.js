@@ -17,6 +17,7 @@ import Location from "./components/location";
 import { Tabs, Tab, Toolbar, IconButton } from "@material-ui/core";
 import HistoricalNew from "./components/historicalNew";
 import corona from "./components/corona.png";
+import CoronaVirus from "./components/coronaVirus";
 
 function Copyright() {
   return (
@@ -117,6 +118,7 @@ export default function Dashboard() {
           >
             <Tab label="Dashboard" {...a11yProps(0)} />
             <Tab label="Reports" {...a11yProps(1)} />
+            <Tab label="Coronavirus" {...a11yProps(2)} />
           </Tabs>
         </Toolbar>
       </AppBar>
@@ -164,6 +166,9 @@ export default function Dashboard() {
             </Box>
           </Container>
         </main>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+      <CoronaVirus />
       </TabPanel>
     </div>
   );

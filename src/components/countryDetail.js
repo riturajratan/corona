@@ -59,7 +59,7 @@ export default function CountryDetail(props) {
                 })}
             {!(detail && detail.timeline) && (
               <TableRow>
-                <TableCell style={{ fontSize: "large", color: "orange" }} colspan="4">
+                <TableCell style={{ fontSize: "large", color: "orange" }} colSpan="4">
                   <span>
                     Click on any
                     <img
