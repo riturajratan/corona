@@ -31,7 +31,7 @@ export default function CountryDetail(props) {
               <TableCell align="left">Date</TableCell>
               <TableCell align="left">Cases</TableCell>
               <TableCell align="left">Deaths</TableCell>
-              <TableCell align="left">Recovered</TableCell>
+              {/* <TableCell align="left">Recovered</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -51,9 +51,9 @@ export default function CountryDetail(props) {
                       <TableCell style={{ fontSize: "large", color: "red" }}>
                         {detail.timeline.deaths[key]}
                       </TableCell>
-                      <TableCell style={{ fontSize: "large", color: "green" }}>
+                      {/* <TableCell style={{ fontSize: "large", color: "green" }}>
                         {detail.timeline.recovered[key]}
-                      </TableCell>
+                      </TableCell> */}
                     </TableRow>
                   );
                 })}

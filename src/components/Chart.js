@@ -52,14 +52,15 @@ export default function Chart() {
               <Tooltip />
               <Area
                 type="monotone"
-                dataKey="deltaConfirmed"
+                dataKey="deaths.total"
                 stackId="1"
-                stroke="#ffc658"
-                fill="#ffc658"
+                stroke="#f44336"
+                fill="#f44336"
+
               />
               <Area
                 type="monotone"
-                dataKey="totalRecovered"
+                dataKey="recovered.total"
                 stackId="1"
                 stroke="#82ca9d"
                 fill="#82ca9d"
@@ -68,8 +69,8 @@ export default function Chart() {
                 type="monotone"
                 dataKey="totalConfirmed"
                 stackId="1"
-                stroke="#f44336"
-                fill="#f44336"
+                stroke="#ffc658"
+                fill="#ffc658"
               />
             </AreaChart>
           </ResponsiveContainer>

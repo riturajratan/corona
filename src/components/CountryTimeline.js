@@ -31,7 +31,7 @@ export default function CountryTimeline(props) {
         date: moment(key).format("DD-MMM-YY"),
         cases: +detail.timeline.cases[key],
         deaths: +detail.timeline.deaths[key],
-        recovered: +detail.timeline.recovered[key]
+        // recovered: +detail.timeline.recovered[key]
       });
     });
   }
@@ -59,13 +59,13 @@ export default function CountryTimeline(props) {
               stroke="#f44336"
               fill="#f44336"
             />
-            <Line
+            {/* <Line
               type="monotone"
               dataKey="recovered"
               stackId="1"
               stroke="#82ca9d"
               fill="#82ca9d"
-            />
+            /> */}
             <Line
               type="monotone"
               dataKey="cases"

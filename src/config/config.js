@@ -15,7 +15,7 @@ export const API = {
     pattern: "https://covid19.mathdro.id/api/countries/[country]",
     example: "https://covid19.mathdro.id/api/countries/USA"
   },
-  historical: "https://corona.lmao.ninja/historical",
-  map: "https://corona.lmao.ninja/jhucsse",
+  historical: "https://corona.lmao.ninja/v2/historical",
+  map: "https://corona.lmao.ninja/v2/jhucsse",
   lastUpdate: "2020-03-20T14:43:04.000Z"
 };
